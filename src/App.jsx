@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar';
+import Search from './components/Search';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -17,8 +18,8 @@ function App() {
   return (
     <div className='w-full'>  
       <Navbar toggleDarkmode={toggleDarkmode}/>
-     
-     
+      <Search/>
+
     </div>
   )
 }
