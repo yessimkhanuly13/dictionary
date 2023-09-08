@@ -30,7 +30,7 @@ function Search() {
             data && setResult(data[0]);
             inpRef.current.value = null;
             data && setIsLoading(false);
-            data && console.log(data[0].phonetics[0].audio);
+            data && console.log(data[0]);
           } catch (error) {
             console.error('Error fetching data:', error);
         }        
@@ -47,7 +47,7 @@ function Search() {
 
         {
             result && (
-                <WordInfo result={result}/>
+                <WordInfo result={result} setResult={searchForWord}/>
             )
         }
         
