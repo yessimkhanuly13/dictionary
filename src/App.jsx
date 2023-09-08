@@ -5,6 +5,9 @@ import Search from './components/Search';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [fontFamily, setFontFamily] = useState('font-serif');
+  
+  // font-mono, font-sans
 
   function toggleDarkmode(){
     setDarkMode(!darkMode);
@@ -15,13 +18,9 @@ function App() {
     }
   } 
   
-  useEffect(()=>{
-    console.log(import.meta.env.VITE_API);
-  },[])
-
   return (
-    <div className={darkMode ? 'dark-theme w-full' : 'light-theme w-full'}>  
-      <Navbar toggleDarkmode={toggleDarkmode}/>
+    <div className={darkMode ? `dark-theme w-full ${fontFamily}` : `light-theme w-full ${fontFamily}`}>  
+      <Navbar toggleDarkmode={toggleDarkmode} setFontFamily={setFontFamily}/>
       <Search/>
 
     </div>
