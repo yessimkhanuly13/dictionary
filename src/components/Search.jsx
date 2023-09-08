@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import search from '../assets/icon-search.svg'
 import WordInfo from './WordInfo';
 import Loading from './Loading';
 import Error from './Error';
 
 function Search() {
-    const [word, setWord] = useState("");
+    const [word, setWord] = useState("dictionary");
     const [result, setResult] = useState({});
     const [err, setErr] = useState(false);
 
@@ -39,6 +39,10 @@ function Search() {
             console.error('Error fetching data:', error);
         }        
     }
+
+    useEffect(()=>{
+      searchForWord(word);
+    },[])
 
   return (
     <div className='w-full mt-12'>

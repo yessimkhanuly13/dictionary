@@ -10,7 +10,7 @@ function Error() {
         <span>No Definitions Found</span>
         <br></br>
         <span>Sorry pal, we couldn't find definitions for the word you were looking for.</span>
-        
+        <div className='h-screen'></div>
     </div>
   )
 }
