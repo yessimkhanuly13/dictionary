@@ -2,10 +2,12 @@ import React, { useRef, useState } from 'react'
 import search from '../assets/icon-search.svg'
 import WordInfo from './WordInfo';
 import Loading from './Loading';
+import Error from './Error';
 
 function Search() {
     const [word, setWord] = useState("");
     const [result, setResult] = useState({});
+    const [err, setErr] = useState(false);
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -21,10 +23,12 @@ function Search() {
 
     const searchForWord = async (word) =>{
           setIsLoading(true);
+          setErr(false);
         try {
             const response = await fetch(import.meta.env.VITE_API + word);
             if (!response.ok) {
-              throw new Error('Network response was not ok');
+              setErr(true);
+              setIsLoading(false);
             }
             const data = await response.json();
             data && setResult(data[0]);
@@ -54,6 +58,11 @@ function Search() {
         {
           isLoading && (
             <Loading/>
+          )
+        }
+        {
+          err && (
+            <Error/>
           )
         }
     </div>

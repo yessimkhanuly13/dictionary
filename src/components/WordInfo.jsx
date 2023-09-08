@@ -21,7 +21,7 @@ function WordInfo({result, setResult}) {
       </div>
       <div>
           {
-            result && result.meanings && result.meanings.map((item)=>(<Meanings data={item}/>))
+            result && result.meanings && result.meanings.map((item)=>(<Meanings data={item} setResult={setResult}/>))
           }
       </div>
     </>
