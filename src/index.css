@@ -16,6 +16,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  
+  --background-dark: #121212;
+  --text-light: #ffffff;
+  --link-color: #3498db;
+  
 }
 
 body {
@@ -60,12 +65,12 @@ button:focus-visible {
   }
 }
 
-.dark{
-  background-color: black;
-  color: white;
+.light-theme {
+  background-color: #ffffff;
+  color: #000000;
 }
 
-.light{
-  background-color: white;
-  color: black;
+.dark-theme {
+  background-color: var(--background-dark);
+  color: var(--text-light);
 }

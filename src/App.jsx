@@ -8,15 +8,19 @@ function App() {
 
   function toggleDarkmode(){
     setDarkMode(!darkMode);
-    console.log(darkMode)
-  }
+    if(darkMode){
+      document.body.style.backgroundColor = "#ffffff"
+    }else{
+      document.body.style.backgroundColor = "#121212"
+    }
+  } 
   
   useEffect(()=>{
     console.log(import.meta.env.VITE_API);
   },[])
 
   return (
-    <div className='w-full'>  
+    <div className={darkMode ? 'dark-theme w-full' : 'light-theme w-full'}>  
       <Navbar toggleDarkmode={toggleDarkmode}/>
       <Search/>
 
