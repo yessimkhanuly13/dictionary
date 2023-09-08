@@ -7,6 +7,8 @@ function Search() {
     const [word, setWord] = useState("");
     const [result, setResult] = useState(null);
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const inpRef = useRef(null);
     const btnRef = useRef(null);
 
@@ -18,7 +20,7 @@ function Search() {
     
 
     const searchForWord = async (word) =>{
-
+          setIsLoading(true);
         try {
             const response = await fetch(import.meta.env.VITE_API + word);
             if (!response.ok) {
@@ -27,7 +29,7 @@ function Search() {
             const data = await response.json();
             setResult(data[0]);
             inpRef.current.value = null;
-            console.log(result)
+            data && setIsLoading(false);
           } catch (error) {
             console.error('Error fetching data:', error);
         }        
@@ -43,11 +45,14 @@ function Search() {
         </div>
 
         {
-            result ? (
-                  <WordInfo result={result}/>
-            ) : (
-              <Loading/>
+            result && (
+                <WordInfo result={result}/>
             )
+        }
+        {
+          isLoading && (
+            <Loading/>
+          )
         }
     </div>
   )
