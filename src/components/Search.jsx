@@ -5,7 +5,7 @@ import Loading from './Loading';
 
 function Search() {
     const [word, setWord] = useState("");
-    const [result, setResult] = useState(null);
+    const [result, setResult] = useState({});
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -27,9 +27,10 @@ function Search() {
               throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            setResult(data[0]);
+            data && setResult(data[0]);
             inpRef.current.value = null;
             data && setIsLoading(false);
+            data && console.log(data[0].phonetics[0].audio);
           } catch (error) {
             console.error('Error fetching data:', error);
         }        
@@ -49,6 +50,7 @@ function Search() {
                 <WordInfo result={result}/>
             )
         }
+        
         {
           isLoading && (
             <Loading/>
