@@ -13,7 +13,7 @@ function Meanings({data, setResult}) {
             <div>
                 <li>{item.definition}</li>
                 <div className='text-lg'>{item && item.synonyms.length >= 1 ? 'Synonyms:' : ""}
-                {item && item.synonyms.map((word)=>((<li className='text-fuchsia-600 list-none italic' onClick={()=>setResult(word)}>{word}</li>)))}
+                {item && item.synonyms.map((word)=>((<li className='text-fuchsia-600 list-none italic cursor-pointer' onClick={()=>setResult(word)}>{word}</li>)))}
                 </div>
                 <br></br>
             </div>
