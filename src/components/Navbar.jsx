@@ -12,9 +12,9 @@ function Navbar({toggleDarkmode, setFontFamily}) {
     
         <div className='ml-auto border-r border-1'>
           <select onChange={(e)=>setFontFamily(e.target.value)} className={`appearance-none focus:outline-none text-center mr-4 border-none hover:shadow-xl`}>
-              <option>font-mono</option>
-              <option>font-sans</option>
               <option>font-serif</option>
+              <option>font-sans</option>
+              <option>font-mono</option>
           </select>
         </div>
 
