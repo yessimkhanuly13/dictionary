@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-function Navbar({toggleDarkmode}) {
+function Navbar({toggleDarkmode, setFontFamily}) {
     // font-mono, font-sans
   return (
     <div className='mt-6 flex align-center'>
@@ -10,12 +10,11 @@ function Navbar({toggleDarkmode}) {
             <svg xmlns="http://www.w3.org/2000/svg" width="34" height="38" viewBox="0 0 34 38"><g fill="none" fill-rule="evenodd" stroke="#838383" stroke-linecap="round" stroke-width="1.5"><path d="M1 33V5a4 4 0 0 1 4-4h26.8A1.2 1.2 0 0 1 33 2.2v26.228M5 29h28M5 37h28"/><path stroke-linejoin="round" d="M5 37a4 4 0 1 1 0-8"/><path d="M11 9h12"/></g></svg>
         </div>
     
-        <div className='ml-auto border border-1'>
-          <select>
-              <option>dd</option>
-              <option>dd</option>
-              <option>dd</option>
-              <option>dd</option>
+        <div className='ml-auto border-r border-1'>
+          <select onChange={(e)=>setFontFamily(e.target.value)} className={`appearance-none focus:outline-none text-center mr-4 border-none hover:shadow-xl`}>
+              <option>font-mono</option>
+              <option>font-sans</option>
+              <option>font-serif</option>
           </select>
         </div>
 
